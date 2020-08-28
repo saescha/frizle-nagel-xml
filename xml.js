@@ -261,8 +261,8 @@ function main() {
         });
         json.KVNDATENIMPORT = auftraege;
 
-        fs.writeFileSync('result.xml', '<?xml version="1.0" encoding="UTF-8"?>' + jsonxml(json, { prettyPrint: true, escape: true })
-            .replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;'));
+        // fs.writeFileSync('result.xml', '<?xml version="1.0" encoding="UTF-8"?>' + jsonxml(json, { prettyPrint: true, escape: true })
+        //     .replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;'));
         // console.log(JSON.stringify(json, null, 2));
         // console.log(jsonxml(json, { prettyPrint: true }));
 

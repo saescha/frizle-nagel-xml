@@ -1,0 +1,11 @@
+Installation:
+  - NodeJS installieren: https://nodejs.org/en/download/
+  - NPM installieren: https://nodejs.org/en/
+  - Mit einer console in diesen Ordner navigieren (cmd oder powershell) und "npm install" ausführen 
+Benutzung:
+  - Mit einer console in diesen Ordner navigieren (cmd oder powershell)
+  - "node xml.js" ausführen. Dadurch wird die Datei result.xml erzeugt, falls kein Fehler auftritt.
+  - Auf dem Nagel Portal einloggen: https://elogistics.nagel-group.com/
+  - Navigiere Auftragserfassung -> Datenimport
+  - Dort die Datei result.xml hochladen. Ggf. die angelegten Aufträge prüfen.
+  - In der console "node update.js" ausführen um die lieferungen in collmex zu aktualisieren.

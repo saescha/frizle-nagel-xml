@@ -1,0 +1,20 @@
+{
+  "name": "collmex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-collmex": "^0.15.0",
+    "dateformat": "^3.0.3",
+    "jsontoxml": "^1.0.1",
+    "string-similarity": "^4.0.2",
+    "xml2js": "^0.4.23",
+    "xmlbuilder": "^15.1.1"
+  }
+}

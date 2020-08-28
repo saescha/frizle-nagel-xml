@@ -233,8 +233,8 @@ function main() {
             } else {
                 throw new Error('Lieferung ' + l.Lieferungsnummer + ': Land nicht unterstützt');
             }
-            //ADR.children.ADRNAME1 = ADR.children.ADRNAME1.replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;');
-            //ADR.children.ADRSTRASSE = ADR.children.ADRSTRASSE.replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;');
+            ADR.children.ADRNAME1 = ADR.children.ADRNAME1.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ß/g, 'ss').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue');
+            ADR.children.ADRSTRASSE = ADR.children.ADRSTRASSE.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ß/g, 'ss').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue');
             ADR.children.ADRORT = ADR.children.ADRORT.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ß/g, 'ss').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue');
 
 

@@ -209,14 +209,14 @@ function main() {
                 if (l.LieferAdr_Telefon2) {
                     ADR = { name: 'ADRESSE', children: { ADRESSTYP: 'EMP', ADRKDNR: l.LieferAdr_Telefon2, ADRNAME1: l.LieferAdr_Firma, ADRSTRASSE: l.LieferAdr_Strasse, ADRLAND: l.LieferAdr_Land, ADRPLZ: l.LieferAdr_PLZ, ADRORT: l.LieferAdr_Ort } };
                 } else {
-                    // throw new Error('Lieferung ' + l.Lieferungsnummer + ': Keine Telefon2 für Nagel Kundennummer gepflegt');
+                    throw new Error('Lieferung ' + l.Lieferungsnummer + ': Keine Telefon2 für Nagel Kundennummer gepflegt');
                     ADR = { name: 'ADRESSE', children: { ADRESSTYP: 'EMP', ADRNAME1: l.LieferAdr_Firma, ADRSTRASSE: l.LieferAdr_Strasse, ADRLAND: l.LieferAdr_Land, ADRPLZ: l.LieferAdr_PLZ, ADRORT: l.LieferAdr_Ort } };
                 }
             } else if (l.Kunde_PLZ) {
                 if (l.Kunde_Telefon2) {
                     ADR = { name: 'ADRESSE', children: { ADRESSTYP: 'EMP', ADRKDNR: l.Kunde_Telefon2, ADRNAME1: l.Kunde_Firma, ADRSTRASSE: l.Kunde_Strasse, ADRLAND: l.Kunde_Land, ADRPLZ: l.Kunde_PLZ, ADRORT: l.Kunde_Ort } };
                 } else {
-                    // throw new Error('Lieferung ' + l.Lieferungsnummer + ': Keine Telefon2 für Nagel Kundennummer gepflegt');
+                    throw new Error('Lieferung ' + l.Lieferungsnummer + ': Keine Telefon2 für Nagel Kundennummer gepflegt');
                     ADR = { name: 'ADRESSE', children: { ADRESSTYP: 'EMP', ADRNAME1: l.Kunde_Firma, ADRSTRASSE: l.Kunde_Strasse, ADRLAND: l.Kunde_Land, ADRPLZ: l.Kunde_PLZ, ADRORT: l.Kunde_Ort } };
                 }
             } else {
@@ -244,6 +244,7 @@ function main() {
                         { AUFDAT: dateFormat(new Date(l.Lieferungsdatum), 'dd.mm.yyyy') },
                         { name: 'ADRESSE', children: { ADRESSTYP: 'ABS', ADRKDNR: '173674', ADRINDEX: 0, ADRNAME1: 'frizle fresh foods', ADRNAME2: 'AG', ADRSTRASSE: 'Peterstaler Str. 39', ADRLAND: 'D', ADRPLZ: '69118', ADRORT: 'Heidelberg', ADRORTSTEIL: 'Ziegelhausen' } },
                         ADR,
+                        { FRANKATUR: '6'},
                         { PRODGR: '01' },
                         { LFTERMIN: dateFormat(new Date(l.lieferdatum), 'dd.mm.yyyy') }
                     ],

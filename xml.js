@@ -205,10 +205,12 @@ function main() {
                 return;
             }
             var ADR;
+
             if (l.LieferAdr_PLZ) {
                 if (l.LieferAdr_Telefon2) {
                     ADR = { name: 'ADRESSE', children: { ADRESSTYP: 'EMP', ADRKDNR: l.LieferAdr_Telefon2, ADRNAME1: l.LieferAdr_Firma, ADRSTRASSE: l.LieferAdr_Strasse, ADRLAND: l.LieferAdr_Land, ADRPLZ: l.LieferAdr_PLZ, ADRORT: l.LieferAdr_Ort } };
                 } else {
+
                     throw new Error('Lieferung ' + l.Lieferungsnummer + ': Keine Telefon2 für Nagel Kundennummer gepflegt');
                     ADR = { name: 'ADRESSE', children: { ADRESSTYP: 'EMP', ADRNAME1: l.LieferAdr_Firma, ADRSTRASSE: l.LieferAdr_Strasse, ADRLAND: l.LieferAdr_Land, ADRPLZ: l.LieferAdr_PLZ, ADRORT: l.LieferAdr_Ort } };
                 }
@@ -231,8 +233,8 @@ function main() {
             } else {
                 throw new Error('Lieferung ' + l.Lieferungsnummer + ': Land nicht unterstützt');
             }
-            ADR.children.ADRNAME1 = ADR.children.ADRNAME1.replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;');
-            ADR.children.ADRSTRASSE = ADR.children.ADRSTRASSE.replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;');
+            //ADR.children.ADRNAME1 = ADR.children.ADRNAME1.replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;');
+            //ADR.children.ADRSTRASSE = ADR.children.ADRSTRASSE.replace(/ä/g, '&auml;').replace(/ö/g, '&ouml;').replace(/ß/g, '&szlig;').replace(/ü/g, '&uuml;').replace(/Ä/g, '&Auml;').replace(/Ö/g, '&Ouml;').replace(/Ü/g, '&Uuml;');
             ADR.children.ADRORT = ADR.children.ADRORT.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ß/g, 'ss').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue');
 
 
@@ -244,12 +246,15 @@ function main() {
                         { AUFDAT: dateFormat(new Date(l.Lieferungsdatum), 'dd.mm.yyyy') },
                         { name: 'ADRESSE', children: { ADRESSTYP: 'ABS', ADRKDNR: '173674', ADRINDEX: 0, ADRNAME1: 'frizle fresh foods', ADRNAME2: 'AG', ADRSTRASSE: 'Peterstaler Str. 39', ADRLAND: 'D', ADRPLZ: '69118', ADRORT: 'Heidelberg', ADRORTSTEIL: 'Ziegelhausen' } },
                         ADR,
-                        { FRANKATUR: '6'},
+                        { FRANKATUR: '6' },
                         { PRODGR: '01' },
                         { LFTERMIN: dateFormat(new Date(l.lieferdatum), 'dd.mm.yyyy') }
                     ],
                     POSITION,
-                    LIEFERSCHEIN: { LIEFERSCHEIN: l.Lieferungsnummer }
+                    LIEFERSCHEIN: {
+                        LIEFERSCHEIN: l.Lieferungsnummer,
+                        LIEFERSCHEINDATUM: dateFormat(new Date(l.Lieferungsdatum), 'dd.mm.yyyy')
+                    }
                 }
             })
 
